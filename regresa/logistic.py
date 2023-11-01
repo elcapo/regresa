@@ -1,5 +1,6 @@
 import numpy as np
 import math, copy
+from regresa.utils import numpyize_list
 
 def sigmoid(z):
     """
@@ -11,6 +12,7 @@ def sigmoid(z):
     Returns:
         (ndarray (m, )): vector with the dimension of z and the result of the computation
     """
+    z = numpyize_list(z)
     return 1 / (1 + np.exp(-z))
 
 def apply_regression(x, w, b):
@@ -25,6 +27,7 @@ def apply_regression(x, w, b):
     Return:
         f_wb (ndarray (m, )): evaluation of the logistic regression for each value of x
     """
+    x = numpyize_list(x)
     m = x.shape[0]
     f_wb = np.zeros(m)
     for i in range(m):
@@ -34,7 +37,7 @@ def apply_regression(x, w, b):
 
 def loss(x, y, w, b, lambde=0):
     """
-    Compute the loss of each example.
+    Compute the loss of a set of examples.
 
     Arguments:
         x (ndarray (m, n)): input values where the regression will be computed
@@ -78,7 +81,7 @@ def cost(x, y, w, b, lambde=0):
 
 def cost_gradient(x, y, w, b, lambde=0):
     """
-    Compute the gradient of the cost of a given set of components for w and b.
+    Compute the gradient of the cost of a given set of coefficients (w and b).
 
     Arguments:
         x (ndarray (m, n)): input values where the regression will be computed
@@ -127,3 +130,6 @@ def gradient_descent(x, y, w_in, b, alpha, iterations):
         w = w - (alpha * dj_dw)
         b = b - (alpha * dj_db)
     return w, b
+
+x = [[x] for x in range(-10, 11)]
+y = apply_regression(x, [1], 0)
