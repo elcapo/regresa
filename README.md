@@ -27,6 +27,15 @@ Once installed, use **Poetry**'s shell to interact with the package.
 poetry shell
 ```
 
+### Getting Help
+
+The **logistic** module offers the functions `sigmoid`, `apply_regression`, `loss`, `cost`, `cost_gradient` and `gradient_descent`. All of them offer some kind of information that can be queried using Python's **help** function.
+
+```python
+from regresa.logistic import *
+help(sigmoid)
+```
+
 ## Tests
 
 To run the tests, use **PyTest** from your shell.

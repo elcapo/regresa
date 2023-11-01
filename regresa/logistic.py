@@ -13,10 +13,9 @@ def sigmoid(z):
     """
     return 1 / (1 + np.exp(-z))
 
-def logistic_regression(x, w, b):
+def apply_regression(x, w, b):
     """
-    Compute the logistic regression with a given set of weights
-    in a given set of inputs.
+    Apply a given set of coefficients to the input to predict an output.
 
     Arguments:
         x (ndarray (m, n)): input values where the regression will be computed
@@ -49,8 +48,8 @@ def loss(x, y, w, b, lambde=0):
     """
     m = x.shape[0]
     n = w.shape[0]
-    f_wb = logistic_regression(x, w, b)
-    
+    f_wb = apply_regression(x, w, b)
+
     # standard loss
     l = np.zeros(m)
     for i in range(m):
@@ -94,7 +93,7 @@ def cost_gradient(x, y, w, b, lambde=0):
     """
     m = x.shape[0]
     n = len(w)
-    f_wb = logistic_regression(x, w, b)
+    f_wb = apply_regression(x, w, b)
 
     # standard cost
     dj_dw = np.zeros((n,))
