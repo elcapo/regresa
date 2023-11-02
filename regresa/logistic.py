@@ -15,7 +15,7 @@ def sigmoid(z):
     z = numpyize_list(z)
     return 1 / (1 + np.exp(-z))
 
-def apply_regression(x, w, b):
+def predict(x, w, b):
     """
     Apply a given set of coefficients to the input to predict an output.
 
@@ -51,7 +51,7 @@ def loss(x, y, w, b, lambde=0):
     """
     m = x.shape[0]
     n = w.shape[0]
-    f_wb = apply_regression(x, w, b)
+    f_wb = predict(x, w, b)
 
     # standard loss
     l = np.zeros(m)
@@ -96,7 +96,7 @@ def cost_gradient(x, y, w, b, lambde=0):
     """
     m = x.shape[0]
     n = len(w)
-    f_wb = apply_regression(x, w, b)
+    f_wb = predict(x, w, b)
 
     # standard cost
     dj_dw = np.zeros((n,))
@@ -132,4 +132,4 @@ def gradient_descent(x, y, w_in, b, alpha, iterations):
     return w, b
 
 x = [[x] for x in range(-10, 11)]
-y = apply_regression(x, [1], 0)
+y = predict(x, [1], 0)

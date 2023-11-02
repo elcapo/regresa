@@ -7,19 +7,19 @@ def test_sigmoid():
     assert isclose(sigmoid(-10), 4.540e-05, rel_tol = 1e-4)
     assert isclose(sigmoid(10), 1, rel_tol = 1e-4)
 
-def test_apply_regression():
+def test_predict():
     assert np.array_equal(
-        apply_regression(np.array([[0]]), [0], 1),
+        predict(np.array([[0]]), [0], 1),
         np.array([1 / (1 + np.exp(-1))])
     )
 
     assert np.array_equal(
-        apply_regression(np.array([[1/2]]), [2], 0),
+        predict(np.array([[1/2]]), [2], 0),
         np.array([1 / (1 + np.exp(-1))])
     )
 
     assert np.array_equal(
-        apply_regression(np.array([[0], [0], [0]]), [0], 0),
+        predict(np.array([[0], [0], [0]]), [0], 0),
         np.array([.5, .5, .5])
     )
 

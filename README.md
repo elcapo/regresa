@@ -30,10 +30,10 @@ poetry shell
 
 ### Logistic
 
-The `logistic` module offers functions to compute a binary classification given a set of examples with one or more features:
+The **logistic** module offers functions to compute a binary classification given a set of examples with one or more features:
 
-- `sigmoid`: compute the sigmoid of z; in other words, compute 1 / (1 + e**(-z))
-- `apply_regression`: apply a given set of coefficients to the input to predict an output
+- [sigmoid](#sigmoid): compute the sigmoid of z; in other words, compute `1 / (1 + e**(-z))`
+- [predict](#predict): apply a given set of coefficients to the input to predict an output
 - `loss`: compute the loss of a set of examples
 - `cost`: compute the cost of a given set of components for w and b
 - `cost_gradient`: compute the gradient of the cost of a given set of coefficients
@@ -106,13 +106,13 @@ plot(x, y)
 #### Apply Regression
 
 ```python
-from regresa.logistic import apply_regression
+from regresa.logistic import predict
 
-help(apply_regression)
+help(predict)
 ```
 
 ```
-apply_regression(x, w, b)
+predict(x, w, b)
     Apply a given set of coefficients to the input to predict an output.
     
     Arguments:
@@ -130,13 +130,13 @@ In combination with the `plot` method from the `plotter` module, you check how a
 from regresa import plotter, logistic
 
 x = [[x/10] for x in range(-100, 110, 1)]
-multiple_y = [logistic.apply_regression(x, [d/10], 0) for d in range(0, 12, 2)]
+multiple_y = [logistic.predict(x, [d/10], 0) for d in range(0, 12, 2)]
 labels = ['w = {}'.format(d/10) for d in range(0, 12, 2)]
 
 plotter.over_plot(x, multiple_y, legends)
 ```
 
-![Logistic regression for weights increasing in factors of 0.2](assets/apply_regression_plot.png)
+![Logistic regression for weights increasing in factors of 0.2](assets/predict_plot.png)
 
 ## Tests
 
