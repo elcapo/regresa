@@ -35,9 +35,9 @@ The **logistic** module offers functions to compute a binary classification give
 - [sigmoid](#sigmoid): compute the sigmoid of z; in other words, compute `1 / (1 + e**(-z))`
 - [predict](#predict): apply a given set of coefficients to the input to predict an output
 - [loss](#loss): compute the loss of a set of examples
-- `cost`: compute the cost of a given set of components for w and b
-- `cost_gradient`: compute the gradient of the cost of a given set of coefficients
-- `gradient_descent`: compute a gradient descent
+- [cost](#cost): compute the cost of a given set of components for w and b
+- [cost_gradient](#cost-gradient): compute the gradient of the cost of a given set of coefficients
+- [gradient_descent](#gradient-descent): compute a gradient descent
 
 These functions can be imported one by one:
 
