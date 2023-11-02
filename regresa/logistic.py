@@ -130,6 +130,3 @@ def gradient_descent(x, y, w_in, b, alpha, iterations):
         w = w - (alpha * dj_dw)
         b = b - (alpha * dj_db)
     return w, b
-
-x = [[x] for x in range(-10, 11)]
-y = predict(x, [1], 0)
