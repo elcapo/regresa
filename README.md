@@ -221,7 +221,7 @@ cost_gradient(x, y, w, b, lambde=0)
         (scalar): gradient of the cost for the given weight b
 ```
 
-The cost gradient is given by the partial derivates of the cost described above with respect the coefficients `w_j` and `b`.
+The cost gradient is given by the partial derivates of the cost described above with respect the coefficients $w_j$ and $b$.
 
 ```math
 \frac{\partial J(\vec{w}, b)}{\partial w_j} = \frac{1}{m} \sum_{i=1}^{m} [f_{\vec{w},b}(\vec{x}_i) - y_i] x_j + \frac{\lambda}{m} w_j
@@ -266,7 +266,7 @@ w_j^i = w_j^{i-1} - \alpha \frac{\partial J(\vec{w}, b)}{\partial w_j}
 b^i = b^{i-1} - \alpha \frac{\partial J(\vec{w}, b)}{\partial b}
 ```
 
-> Note that the superscript in $w_j^i$ does not represent a power but the value of $w_j$ for the iteration $i$.
+> Note that the superscript in $w_j^i$ does not represent a power. Instead, it express that this is the value of $w_j$ that corresponds with the iteration $i$.
 
 ## Tests
 
