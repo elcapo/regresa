@@ -1,6 +1,6 @@
 # Regresa
 
-**Regresa** is a Python package where I implemented my own versions of the logistic regression algorithms presented by [Andrew Ng](https://www.andrewng.org) in his [Supervised Machine Learning: Regression and Classification](https://www.coursera.org/learn/machine-learning?specialization=machine-learning-introduction) course.
+**Regresa** is a Python package where I implemented my own versions of the logistic regression algorithm presented by [Andrew Ng](https://www.andrewng.org) in his [Supervised Machine Learning: Regression and Classification](https://www.coursera.org/learn/machine-learning?specialization=machine-learning-introduction) course.
 
 My motivations were:
 
@@ -32,7 +32,7 @@ poetry shell
 
 The **logistic** module offers functions to compute a binary classification given a set of examples with one or more features:
 
-- [sigmoid](#sigmoid): compute the sigmoid of z; in other words, compute `1 / (1 + e**(-z))`
+- [sigmoid](#sigmoid): compute the sigmoid of a vector
 - [predict](#predict): apply a given set of coefficients to the input to predict an output
 - [loss](#loss): compute the loss of a set of examples
 - [cost](#cost): compute the cost of a given set of components for w and b
