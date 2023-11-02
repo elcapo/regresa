@@ -1,6 +1,6 @@
 # Regresa
 
-**Regresa** is a Python package where I implemented my own versions of the algorithms presented by [Andrew Ng](https://www.andrewng.org) in his [Supervised Machine Learning: Regression and Classification](https://www.coursera.org/learn/machine-learning?specialization=machine-learning-introduction) course.
+**Regresa** is a Python package where I implemented my own versions of the logistic regression algorithms presented by [Andrew Ng](https://www.andrewng.org) in his [Supervised Machine Learning: Regression and Classification](https://www.coursera.org/learn/machine-learning?specialization=machine-learning-introduction) course.
 
 My motivations were:
 
@@ -10,7 +10,7 @@ My motivations were:
 
 ## Installation
 
-**Regresa** have been written using [Poetry](https://python-poetry.org), what means that the following instructions should be sufficient for you to install it.
+**Regresa** is written with [Poetry](https://python-poetry.org). The following instructions should be sufficient for you to start using it.
 
 ```bash
 git clone https://github.com/elcapo/regresa.git
