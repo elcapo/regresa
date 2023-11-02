@@ -103,7 +103,7 @@ plot(x, y)
 
 ![Sigmoid function plotted from x = -10 to x = +10](assets/sigmoid_plot.png)
 
-#### Apply Regression
+#### Predict
 
 ```python
 from regresa.logistic import predict
