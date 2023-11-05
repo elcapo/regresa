@@ -32,11 +32,11 @@ poetry shell
 
 The **linear** module offers functions to compute a linear regression given a set of examples with one or more features:
 
-- [predict](#linear-predict): apply a given set of coefficients to the input to predict an output
-- [loss](#linear-loss): compute the individual loss for a set of examples
-- [cost](#linear-cost): compute the total cost for a set of examples
-- [cost_gradient](#linear-cost-gradient): compute the gradient of the cost of a given set of coefficients
-- [gradient_descent](#linear-gradient-descent): compute a gradient descent
+- [predict](#linear--predict): apply a given set of coefficients to the input to predict an output
+- [loss](#linear--loss): compute the individual loss for a set of examples
+- [cost](#linear--cost): compute the total cost for a set of examples
+- [cost_gradient](#linear--cost-gradient): compute the gradient of the cost of a given set of coefficients
+- [gradient_descent](#linear--gradient-descent): compute a gradient descent
 
 These functions can be imported one by one:
 
@@ -119,12 +119,12 @@ $linear_gradient_descent_help
 
 The **logistic** module offers functions to compute a binary classification given a set of examples with one or more features:
 
-- [sigmoid](#logistic-sigmoid): compute the sigmoid of a vector
-- [predict](#logistic-predict): apply a given set of coefficients to the input to predict an output
-- [loss](#logistic-loss): compute the individual loss for a set of examples
-- [cost](#logistic-cost): compute the total cost for a set of examples
-- [cost_gradient](#logistic-cost-gradient): compute the gradient of the cost of a given set of coefficients
-- [gradient_descent](#logistic-gradient-descent): compute a gradient descent
+- [sigmoid](#logistic--sigmoid): compute the sigmoid of a vector
+- [predict](#logistic--predict): apply a given set of coefficients to the input to predict an output
+- [loss](#logistic--loss): compute the individual loss for a set of examples
+- [cost](#logistic--cost): compute the total cost for a set of examples
+- [cost_gradient](#logistic--cost-gradient): compute the gradient of the cost of a given set of coefficients
+- [gradient_descent](#logistic--gradient-descent): compute a gradient descent
 
 These functions can be imported one by one:
 
