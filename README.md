@@ -78,8 +78,6 @@ help(predict)
     
 ```
 
-The linear function is given by the expression:
-
 ```math
 f_{\vec{w}, b}(\vec{x}) = \vec{w}·\vec{x} + b
 ```
@@ -136,7 +134,7 @@ help(cost)
 ```
 
 ```math
-J(\vec{w}, b) = \frac{1}{m} \sum_{i=1}^{m} j^{[i]} - \frac{\lambda}{2m} \vec{w} \cdot \vec{w}
+J(\vec{w}, b) = \frac{1}{2 m} \sum_{i=1}^{m} j^{[i]} - \frac{\lambda}{2m} \vec{w} \cdot \vec{w}
 ```
 
 #### Linear / Cost Gradient
@@ -164,6 +162,13 @@ help(cost_gradient)
     
 ```
 
+$
+\begin{alignat*}{4}
+& \alpha \frac{\partial}{\partial \omega} J(\omega, b) = \frac{1}{m} \sum_{i=1}^{m} (f_{\vec{\omega}, b}(\vec{x}^{[i]}) - y^{[i]}) x^{[i]} \\
+& \alpha \frac{\partial}{\partial b} J(\omega, b) = \frac{1}{m} \sum_{i=1}^{m} (f_{\vec{\omega}, b}(\vec{x}^{[i]}) - y^{[i]})
+\end{alignat*}
+$
+
 #### Linear / Gradient Descent
 
 ```python
@@ -189,6 +194,15 @@ help(gradient_descent)
         (scalar): additional scalar weight
     
 ```
+
+$
+\begin{alignat*}{4}
+& w_n = w_{n-1} - \alpha \frac{\partial}{\partial \omega} J(\omega, b) \\
+& b_n = b_{n-1} - \alpha \frac{\partial}{\partial b} J(\omega, b)
+\end{alignat*}
+$
+
+> Note that the subscript in $w_n$ and $b_n$ represent a given iteration and $w_{n-1}$ and $b_{n-1}$ represent the previous one.
 
 ### Logistic
 
@@ -239,10 +253,8 @@ help(sigmoid)
     
 ```
 
-The sigmoid function is determined by the expression:
-
 ```math
-\frac{1}{1 + e^{-z}}
+s(\vec{z}) = \frac{1}{1 + e^{-\vec{z}}}
 ```
 
 This function accepts scalars as input. If a scalar is given, a scalar is also returned.
@@ -257,6 +269,8 @@ The function also accepts lists of numbers and Numpy arrays as input. In those c
 ```python
 sigmoid([0, 9**9]) # array([0.5, 1. ])
 ```
+
+##### Example: Sigmoid plot near zero
 
 In combination with the `plot` method from the `plotter` module, you can easily have a glimpse on how the function looks like.
 
@@ -292,6 +306,10 @@ help(predict)
     Return:
         f_wb (ndarray (m, )): evaluation of the logistic regression for each value of x
     
+```
+
+```math
+f_{\vec{w}, b}(\vec{x}) = \frac{1}{1 + e^{\vec{w}·\vec{x} + b}}
 ```
 
 In combination with the `plot` method from the `plotter` module, you can check how a logistic regression graph changes with different weights.
@@ -332,8 +350,6 @@ help(loss)
     
 ```
 
-The loss function is a convenience that helps us debugging the cost function, as its the part of the cost that corresponds to each example. It's given by:
-
 ```math
 j^{[i]} = -y^{[i]} log(f_{\vec{w},b}(\vec{x}^{[i]})) - (1 - y^{[i]}) log(1 - f_{\vec{w},b}(\vec{x}^{[i]}))
 ```
@@ -361,8 +377,6 @@ help(cost)
         (scalar): total cost for the given set of weights
     
 ```
-
-Thanks to the convenience loss function described above, the cost expression can be simplified as follows.
 
 ```math
 J(\vec{w}, b) = \frac{1}{m} \sum_{i=1}^{m} j^{[i]} - \frac{\lambda}{2m} \vec{w} \cdot \vec{w}
@@ -392,8 +406,6 @@ help(cost_gradient)
         (scalar): gradient of the cost for the given weight b
     
 ```
-
-The cost gradient is given by the partial derivates of the cost described above with respect the coefficients $w_j$ and $b$.
 
 $
 \begin{alignat*}{4}
@@ -427,8 +439,6 @@ help(gradient_descent)
         (scalar): additional scalar weight
     
 ```
-
-The gradient descent iteratively updates the coefficients $w_j^i$ and $b^i$ according to these expressions:
 
 $
 \begin{alignat*}{4}
