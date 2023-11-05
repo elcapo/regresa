@@ -54,6 +54,7 @@ from regresa import linear
 
 # ... and then use them directly by their names prefixed with linear
 linear.predict([[0], [1]], [2], .5) # [0.5, 2.5]
+```
 
 #### Linear / Predict
 
@@ -75,6 +76,12 @@ help(predict)
     Return:
         f_wb (ndarray (m, )): evaluation of the linear regression for each value of x
     
+```
+
+The linear function is given by the expression:
+
+```math
+f_{\vec{w}, b}(\vec{x}) = \vec{w}·\vec{x} + b
 ```
 
 #### Linear / Loss
@@ -100,6 +107,10 @@ help(loss)
     
 ```
 
+```math
+j^{[i]} = \sum_{i=1}^{m}(f_{\vec{w},b}(\vec{x}^{[i]}) - y^{[i]})^2
+```
+
 #### Linear / Cost
 
 ```python
@@ -122,6 +133,10 @@ help(cost)
     Returns:
         (scalar): total cost for the given set of weights
     
+```
+
+```math
+J(\vec{w}, b) = \frac{1}{m} \sum_{i=1}^{m} j^{[i]} - \frac{\lambda}{2m} \vec{w} \cdot \vec{w}
 ```
 
 #### Linear / Cost Gradient
@@ -224,6 +239,12 @@ help(sigmoid)
     
 ```
 
+The sigmoid function is determined by the expression:
+
+```math
+\frac{1}{1 + e^{-z}}
+```
+
 This function accepts scalars as input. If a scalar is given, a scalar is also returned.
 
 ```python
@@ -314,7 +335,7 @@ help(loss)
 The loss function is a convenience that helps us debugging the cost function, as its the part of the cost that corresponds to each example. It's given by:
 
 ```math
-j_i = -y_i log(f_{\vec{w},b}(\vec{x_i})) - (1 - y_i) log(1 - f_{\vec{w},b}(\vec{x_i})) - \frac{\lambda}{2m} \vec{w} \cdot \vec{w}
+j^{[i]} = -y^{[i]} log(f_{\vec{w},b}(\vec{x}^{[i]})) - (1 - y^{[i]}) log(1 - f_{\vec{w},b}(\vec{x}^{[i]}))
 ```
 
 #### Logistic / Cost
@@ -344,7 +365,7 @@ help(cost)
 Thanks to the convenience loss function described above, the cost expression can be simplified as follows.
 
 ```math
-J(\vec{w}, b) = \frac{1}{m} \sum_{i=1}^{m} j_i
+J(\vec{w}, b) = \frac{1}{m} \sum_{i=1}^{m} j^{[i]} - \frac{\lambda}{2m} \vec{w} \cdot \vec{w}
 ```
 
 #### Logistic / Cost Gradient
@@ -375,11 +396,11 @@ help(cost_gradient)
 The cost gradient is given by the partial derivates of the cost described above with respect the coefficients $w_j$ and $b$.
 
 ```math
-\frac{\partial J(\vec{w}, b)}{\partial w_j} = \frac{1}{m} \sum_{i=1}^{m} [f_{\vec{w},b}(\vec{x}_i) - y_i] x_j + \frac{\lambda}{m} w_j
+\frac{\partial J(\vec{w}, b)}{\partial w_j} = \frac{1}{m} \sum_{i=1}^{m} (f_{\vec{w},b}(\vec{x}^{[i]}) - y^{[i]}) x_j^{[i]} + \frac{\lambda}{m} w_j
 ```
 
 ```math
-\frac{\partial J(\vec{w}, b)}{\partial b} = \frac{1}{m} \sum_{i=1}^{m} [f_{\vec{w},b}(\vec{x}_i) - y_i]
+\frac{\partial J(\vec{w}, b)}{\partial b} = \frac{1}{m} \sum_{i=1}^{m} (f_{\vec{w},b}(\vec{x}_i) - y_i)
 ```
 
 #### Logistic / Gradient Descent
