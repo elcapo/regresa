@@ -273,7 +273,7 @@ help(predict)
     
 ```
 
-In combination with the `plot` method from the `plotter` module, you check how a logistic regression graph changes with different weights.
+In combination with the `plot` method from the `plotter` module, you can check how a logistic regression graph changes with different weights.
 
 ```python
 from regresa import plotter, logistic
@@ -314,7 +314,7 @@ help(loss)
 The loss function is a convenience that helps us debugging the cost function, as its the part of the cost that corresponds to each example. It's given by:
 
 ```math
-j_i = -y_i log(f_{\vec{w},i}(\vec{x_i})) - (1 - y_i) log(1 - f_{\vec{w},i}(\vec{x_i})) - \frac{\lambda}{2m} \vec{w} \cdot \vec{w}
+j_i = -y_i log(f_{\vec{w},b}(\vec{x_i})) - (1 - y_i) log(1 - f_{\vec{w},b}(\vec{x_i})) - \frac{\lambda}{2m} \vec{w} \cdot \vec{w}
 ```
 
 #### Logistic / Cost
@@ -428,7 +428,7 @@ To run the tests, use **PyTest** from your shell.
 pytest -v
 ```
 
-![Example of result of running the test suite](assets/screenshot_of_the_first_testuite.png)
+![Example of result of running the test suite](assets/pytest_screenshot.png)
 
 ## Documentation
 
