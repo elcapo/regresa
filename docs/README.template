@@ -64,17 +64,7 @@ help(predict)
 ```
 
 ```
-
-    Apply a given set of coefficients to the input to predict an output.
-
-    Arguments:
-        X (ndarray (m, n)): input values where the regression will be computed
-        w (ndarray (n, )): weights for each of the features
-        b (scalar): biased weight for the regression
-
-    Return:
-        f_wb (ndarray (m, )): evaluation of the linear regression for each value of x
-    
+$linear_predict_help
 ```
 
 #### Linear / Loss
@@ -86,18 +76,7 @@ help(loss)
 ```
 
 ```
-
-    Compute the loss of a set of examples.
-
-    Arguments:
-        X (ndarray (m, n)): input values where the regression will be computed
-        y (ndarray (m, )): vector with boolean tags for each example
-        w (ndarray (n, )): weights for each of the features
-        b (scalar): biased weight for the regression
-
-    Returns:
-        (ndarray (m, )): loss for each of the given examples
-    
+$linear_loss_help
 ```
 
 #### Linear / Cost
@@ -109,19 +88,7 @@ help(cost)
 ```
 
 ```
-
-    Compute the cost for a given set of examples.
-
-    Arguments:
-        X (ndarray (m, n)): input values where the regression will be computed
-        y (ndarray (m, )): vector with boolean tags for each example
-        w (ndarray (n, )): weights for each of the features
-        b (scalar): biased weight for the regression
-        lambde (scalar): factor of regularization
-
-    Returns:
-        (scalar): total cost for the given set of weights
-    
+$linear_cost_help
 ```
 
 #### Linear / Cost Gradient
@@ -133,20 +100,7 @@ help(cost_gradient)
 ```
 
 ```
-
-    Compute the gradient of the cost for a given set of examples.
-
-    Arguments:
-        X (ndarray (m, n)): input values where the regression will be computed
-        y (ndarray (m, )): vector with boolean tags for each example
-        w (ndarray (n, )): weights for each of the features
-        b (scalar): biased weight for the regression
-        lambde (scalar): factor of regularization
-
-    Returns:
-        (ndarray (n, )): gradient of the cost for the given set of weights w
-        (scalar): gradient of the cost for the given weight b
-    
+$linear_cost_gradient_help
 ```
 
 #### Linear / Gradient Descent
@@ -158,21 +112,7 @@ help(gradient_descent)
 ```
 
 ```
-
-    Compute a gradient descent.
-
-    Arguments:
-        X (ndarray (m, n)): input values where the regression will be computed
-        y (ndarray (m, )): vector with boolean tags for each example
-        w (ndarray (n, )): weights for each of the features
-        b (scalar): biased weight for the regression
-        alpha (scalar): learning rate
-        iterations (scalar): number of iterations to run
-
-    Returns:
-        (ndarray (n, )): weights for each feature after the iterations
-        (scalar): additional scalar weight
-    
+$linear_gradient_descent_help
 ```
 
 ### Logistic
@@ -213,15 +153,7 @@ help(sigmoid)
 ```
 
 ```
-
-    Compute the sigmoid of z. In other words, compute 1 / (1 + e**(-z)).
-
-    Arguments:
-        z (ndarray (m, )): one dimensional vector with the input values
-
-    Returns:
-        (ndarray (m, )): vector with the dimension of z and the result of the computation
-    
+$logistic_sigmoid_help
 ```
 
 This function accepts scalars as input. If a scalar is given, a scalar is also returned.
@@ -260,17 +192,7 @@ help(predict)
 ```
 
 ```
-
-    Apply a given set of coefficients to the input to predict an output.
-
-    Arguments:
-        X (ndarray (m, n)): input values where the regression will be computed
-        w (ndarray (n, )): weights for each of the features
-        b (scalar): biased weight for the regression
-
-    Return:
-        f_wb (ndarray (m, )): evaluation of the logistic regression for each value of x
-    
+$logistic_predict_help
 ```
 
 In combination with the `plot` method from the `plotter` module, you check how a logistic regression graph changes with different weights.
@@ -297,18 +219,7 @@ help(loss)
 ```
 
 ```
-
-    Compute the loss of a set of examples.
-
-    Arguments:
-        X (ndarray (m, n)): input values where the regression will be computed
-        y (ndarray (m, )): vector with boolean tags for each example
-        w (ndarray (n, )): weights for each of the features
-        b (scalar): biased weight for the regression
-
-    Returns:
-        (ndarray (m, )): loss for each of the given examples
-    
+$logistic_loss_help
 ```
 
 The loss function is a convenience that helps us debugging the cost function, as its the part of the cost that corresponds to each example. It's given by:
@@ -326,19 +237,7 @@ help(cost)
 ```
 
 ```
-
-    Compute the cost for a given set of examples.
-
-    Arguments:
-        X (ndarray (m, n)): input values where the regression will be computed
-        y (ndarray (m, )): vector with boolean tags for each example
-        w (ndarray (n, )): weights for each of the features
-        b (scalar): biased weight for the regression
-        lambde (scalar): factor of regularization
-
-    Returns:
-        (scalar): total cost for the given set of weights
-    
+$logistic_cost_help
 ```
 
 Thanks to the convenience loss function described above, the cost expression can be simplified as follows.
@@ -356,20 +255,7 @@ help(cost_gradient)
 ```
 
 ```
-
-    Compute the gradient of the cost for a given set of examples.
-
-    Arguments:
-        X (ndarray (m, n)): input values where the regression will be computed
-        y (ndarray (m, )): vector with boolean tags for each example
-        w (ndarray (n, )): weights for each of the features
-        b (scalar): biased weight for the regression
-        lambde (scalar): factor of regularization
-
-    Returns:
-        (ndarray (n, )): gradient of the cost for the given set of weights w
-        (scalar): gradient of the cost for the given weight b
-    
+$logistic_cost_gradient_help
 ```
 
 The cost gradient is given by the partial derivates of the cost described above with respect the coefficients $w_j$ and $b$.
@@ -391,21 +277,7 @@ help(gradient_descent)
 ```
 
 ```
-
-    Compute a gradient descent.
-
-    Arguments:
-        X (ndarray (m, n)): input values where the regression will be computed
-        y (ndarray (m, )): vector with boolean tags for each example
-        w (ndarray (n, )): weights for each of the features
-        b (scalar): biased weight for the regression
-        alpha (scalar): learning rate
-        iterations (scalar): number of iterations to run
-
-    Returns:
-        (ndarray (n, )): weights for each feature after the iterations
-        (scalar): additional scalar weight
-    
+$logistic_gradient_descent_help
 ```
 
 The gradient descent iteratively updates the coefficients `w` and `b` according to these expressions:

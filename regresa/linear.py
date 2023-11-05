@@ -2,19 +2,6 @@ import numpy as np
 import math, copy
 from regresa.utils import numpyize_list
 
-def sigmoid(z):
-    """
-    Compute the sigmoid of z. In other words, compute 1 / (1 + e**(-z)).
-
-    Arguments:
-        z (ndarray (m, )): one dimensional vector with the input values
-
-    Returns:
-        (ndarray (m, )): vector with the dimension of z and the result of the computation
-    """
-    z = numpyize_list(z)
-    return 1 / (1 + np.exp(-z))
-
 def predict(X, w, b):
     """
     Apply a given set of coefficients to the input to predict an output.
@@ -25,14 +12,13 @@ def predict(X, w, b):
         b (scalar): biased weight for the regression
 
     Return:
-        f_wb (ndarray (m, )): evaluation of the logistic regression for each value of x
+        f_wb (ndarray (m, )): evaluation of the linear regression for each value of x
     """
     X = numpyize_list(X)
     m = X.shape[0]
     f_wb = np.zeros(m)
     for i in range(m):
-        z = (X[i] @ w) + b
-        f_wb[i] = sigmoid(z)
+        f_wb[i] = (X[i] @ w) + b
     return f_wb
 
 def loss(X, y, w, b):
@@ -52,10 +38,9 @@ def loss(X, y, w, b):
     n = w.shape[0]
     f_wb = predict(X, w, b)
 
-    # standard loss
     l = np.zeros(m)
     for i in range(m):
-        l[i] = (-y[i]) * np.log(f_wb[i]) - (1 - y[i]) * np.log(1 - f_wb[i])
+        l[i] = (f_wb[i] - y[i])**2    
     return l
 
 def cost(X, y, w, b, lambde=0):
@@ -73,9 +58,9 @@ def cost(X, y, w, b, lambde=0):
         (scalar): total cost for the given set of weights
     """
     m = X.shape[0]
-    prediction_loss = sum(loss(X, y, w, b)) / m
-    regularization = lambde * (w @ w) / (2*m)
-    return prediction_loss + regularization
+    prediction_cost = sum(loss(X, y, w, b)) / (2*m)
+    regularization = lambde * np.dot(w, w) / (2*m)
+    return prediction_cost + regularization
 
 def cost_gradient(X, y, w, b, lambde=0):
     """

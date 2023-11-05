@@ -24,11 +24,11 @@ def test_predict():
     )
 
 def test_loss():
-    x = np.array([[.5, 1.5], [1, 1], [1.5, .5], [3, .5], [2, 2], [1, 2.5]])
+    X = np.array([[.5, 1.5], [1, 1], [1.5, .5], [3, .5], [2, 2], [1, 2.5]])
     y = np.array([0, 0, 0, 1, 1, 1])
     w = np.array([1,1])
     b = -3
-    assert all(np.isclose(loss(x, y, w, b), [
+    assert all(np.isclose(loss(X, y, w, b), [
         .31326169,
         .31326169,
         .31326169,
@@ -38,27 +38,27 @@ def test_loss():
     ]))
 
 def test_cost():
-    x = np.array([[.5, 1.5], [1, 1], [1.5, .5], [3, .5], [2, 2], [1, 2.5]])
+    X = np.array([[.5, 1.5], [1, 1], [1.5, .5], [3, .5], [2, 2], [1, 2.5]])
     y = np.array([0, 0, 0, 1, 1, 1])
     w = np.array([1, 1])
     b = -3
-    assert isclose(cost(x, y, w, b), .3668667864055175)
+    assert isclose(cost(X, y, w, b), .3668667864055175)
 
 def test_regularized_cost():
     np.random.seed(1)
-    x = np.random.rand(5, 6)
+    X = np.random.rand(5, 6)
     y = np.array([0, 1, 0, 1, 0])
-    w = np.random.rand(x.shape[1]).reshape(-1,) - .5
+    w = np.random.rand(X.shape[1]).reshape(-1,) - .5
     b = .5
     lambde = .7
-    assert math.isclose(cost(x, y, w, b, lambde), .6850849138741673)
+    assert math.isclose(cost(X, y, w, b, lambde), .6850849138741673)
 
 def test_cost_gradient():
-    x = np.array([[.5, 1.5], [1, 1], [1.5, .5], [3, .5], [2, 2], [1, 2.5]])
+    X = np.array([[.5, 1.5], [1, 1], [1.5, .5], [3, .5], [2, 2], [1, 2.5]])
     y = np.array([0, 0, 0, 1, 1, 1])
     w = np.array([2., 3.])
     b = 1.
-    dj_dw, dj_db = cost_gradient(x, y, w, b)
+    dj_dw, dj_db = cost_gradient(X, y, w, b)
     assert all(np.isclose(dj_dw, [
         .498333393278696,
         .49883942983996693
@@ -67,12 +67,12 @@ def test_cost_gradient():
 
 def test_regularized_cost_gradient():
     np.random.seed(1)
-    x = np.random.rand(5, 3)
+    X = np.random.rand(5, 3)
     y = np.array([0, 1, 0, 1, 0])
-    w = np.random.rand(x.shape[1])
+    w = np.random.rand(X.shape[1])
     b = .5
     lambde = .7
-    dj_dw, dj_db = cost_gradient(x, y, w, b, lambde)
+    dj_dw, dj_db = cost_gradient(X, y, w, b, lambde)
     assert all(np.isclose(dj_dw, [
         .17380012933994293,
         .32007507881566943,
@@ -81,13 +81,13 @@ def test_regularized_cost_gradient():
     assert math.isclose(dj_db, .341798994972791)
 
 def test_gradient_descent():
-    x = np.array([[.5, 1.5], [1, 1], [1.5, .5], [3, .5], [2, 2], [1, 2.5]])
+    X = np.array([[.5, 1.5], [1, 1], [1.5, .5], [3, .5], [2, 2], [1, 2.5]])
     y = np.array([0, 0, 0, 1, 1, 1])
-    w_in  = np.zeros_like(x[0])
+    w_in  = np.zeros_like(X[0])
     b_in = 0.
     alpha = .1
     iterations = 10000
-    w, b = gradient_descent(x, y, w_in, b_in, alpha, iterations)
+    w, b = gradient_descent(X, y, w_in, b_in, alpha, iterations)
     assert all(np.isclose(w, [
         5.28123029,
         5.07815608,
